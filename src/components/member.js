@@ -14,6 +14,14 @@ const Member = ({member, platform}) => {
 	const today = Moment(new Date());
 	const daysSincePlayed = Moment.unix(member.lastOnlineStatusChange).diff(today, 'days');
 
+	const platformIcon = 
+		platform === 0 ? "" :
+		platform === 1 ? <XboxLogo width="1rem" height="1rem" /> :
+		platform === 2 ? <PlaystationLogo width="1rem" height="1rem" /> :
+		platform === 3 ? <SteamLogo width="1rem" height="1rem" /> :
+		platform === 4 ? <SteamLogo width="1rem" height="1rem" /> :
+		platform === 5 ? <StadiaLogo width="1rem" height="1rem" /> : "";
+
 
 // If a user has played/saved Destiny on multiple platforms show them e.g. (XB1, PSN)
 	const xsavePlatformDisplay = member.destinyUserInfo.applicableMembershipTypes.length === 1 ? "" : 
@@ -24,13 +32,7 @@ const Member = ({member, platform}) => {
 			})
 		+ ")";
 
-		const platformIcon = 
-			platform === 0 ? "" :
-			platform === 1 ? <XboxLogo width="1rem" height="1rem" /> :
-			platform === 2 ? <PlaystationLogo width="1rem" height="1rem" /> :
-			platform === 3 ? <SteamLogo width="1rem" height="1rem" /> :
-			platform === 4 ? <SteamLogo width="1rem" height="1rem" /> :
-			platform === 5 ? <StadiaLogo width="1rem" height="1rem" /> : "";
+
 
 
 	if (!member.destinyUserInfo && !member.bungieNetUserInfo)	{ 
