@@ -33,8 +33,6 @@ const Member = ({member, platform}) => {
 		+ ")";
 
 
-
-
 	if (!member.destinyUserInfo && !member.bungieNetUserInfo)	{ 
 		return <div></div>; 
 	} else {
