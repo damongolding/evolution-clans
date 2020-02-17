@@ -1,5 +1,10 @@
 import React from 'react';
 import Moment from 'moment';
+// Import platform logos
+import { ReactComponent as XboxLogo } from '../assets/img/platform-xbox.svg';
+import { ReactComponent as PlaystationLogo } from '../assets/img/platform-playstation.svg';
+import { ReactComponent as SteamLogo } from '../assets/img/platform-steam.svg';
+import { ReactComponent as StadiaLogo } from '../assets/img/platform-stadia.svg';
 
 const Member = ({member, platform}) => {
 
@@ -8,6 +13,7 @@ const Member = ({member, platform}) => {
 	const lastPlayed = Moment.unix(member.lastOnlineStatusChange).fromNow();
 	const today = Moment(new Date());
 	const daysSincePlayed = Moment.unix(member.lastOnlineStatusChange).diff(today, 'days');
+
 
 // If a user has played/saved Destiny on multiple platforms show them e.g. (XB1, PSN)
 	const xsavePlatformDisplay = member.destinyUserInfo.applicableMembershipTypes.length === 1 ? "" : 
@@ -18,6 +24,14 @@ const Member = ({member, platform}) => {
 			})
 		+ ")";
 
+		const platformIcon = 
+			platform === 0 ? "" :
+			platform === 1 ? <XboxLogo width="1rem" height="1rem" /> :
+			platform === 2 ? <PlaystationLogo width="1rem" height="1rem" /> :
+			platform === 3 ? <SteamLogo width="1rem" height="1rem" /> :
+			platform === 4 ? <SteamLogo width="1rem" height="1rem" /> :
+			platform === 5 ? <StadiaLogo width="1rem" height="1rem" /> : "";
+
 
 	if (!member.destinyUserInfo && !member.bungieNetUserInfo)	{ 
 		return <div></div>; 
@@ -27,7 +41,7 @@ const Member = ({member, platform}) => {
 				className={`member 
 					${(daysSincePlayed - daysSincePlayed * 2) > 89 ? "boot" : "dont-boot"} 
 					${member.memberType >= 3 ? "admin" : ""}`}>
-						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } {platforms[platform]} {xsavePlatformDisplay}
+						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } on {platformIcon} {xsavePlatformDisplay}
 			</div>
 		);
 	}

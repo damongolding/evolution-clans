@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       BASE_URL: `https://www.bungie.net/Platform`,
-      API_KEY: window.location.href === "http://localhost:3000/" ? `9c2fa45363f943bca1ab8b94c6d3fa59` : `5bae9685d44d40879a0a24da5e948e90`,  
+      API_KEY: window.location.href === "http://localhost:3000/evolution-clans" ? `9c2fa45363f943bca1ab8b94c6d3fa59` : `5bae9685d44d40879a0a24da5e948e90`,  
     };
   }
 
