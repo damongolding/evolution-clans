@@ -41,7 +41,7 @@ const Member = ({member, platform}) => {
 				className={`member 
 					${(daysSincePlayed - daysSincePlayed * 2) > 89 ? "boot" : "dont-boot"} 
 					${member.memberType >= 3 ? "admin" : ""}`}>
-						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } on {platformIcon} {xsavePlatformDisplay}
+						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } on <div className="icon baseline">{platformIcon}</div> {xsavePlatformDisplay}
 			</div>
 		);
 	}
