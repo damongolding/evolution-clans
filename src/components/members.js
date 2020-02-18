@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Member from "./member";
-import request from "superagent";
+import superagent from "superagent";
 
 class Members extends Component {
   constructor(props) {
@@ -12,42 +12,48 @@ class Members extends Component {
       clanName: props.clanName,
       platform: props.platform,
       members: [],
-      failedCall : false
+      failedCall: false
     };
   }
 
   componentDidMount() {
-    request
+    superagent
       .get(`${this.state.BASE_URL}/GroupV2/${this.state.groupId}/Members/`)
       .set("X-API-Key", this.state.API_KEY)
       .set("accept", "json")
       .end((err, res) => {
         if (!err) {
-          const results = JSON.parse(res.text);
+          //const results = JSON.parse(res.text);
           this.setState({
-            members: results.Response.results
+            members: res.body.Response.results
           });
         } else {
-          this.setState({failedCall : true});
+          this.setState({ failedCall: true });
         }
       });
   }
 
   render() {
     // Members sorted alphabetically by username
-    const members = this.state.members.sort((a, b) => a.destinyUserInfo.LastSeenDisplayName.toString().toLowerCase() > b.destinyUserInfo.LastSeenDisplayName.toString().toLowerCase() ? 1 : -1)
-        .map((member, index) => {
-      const currentMember = member;
-      return (
-        <Member
-          member={currentMember}
-          platform={currentMember.destinyUserInfo.LastSeenDisplayNameType}
-          BASE_URL={this.props.BASE_URL}
-          API_KEY={this.props.API_KEY}
-          key={index.toString()}
-        />
-      );
-    });
+    const members = this.state.members
+      .sort((a, b) =>
+        a.destinyUserInfo.LastSeenDisplayName.toString().toLowerCase() >
+        b.destinyUserInfo.LastSeenDisplayName.toString().toLowerCase()
+          ? 1
+          : -1
+      )
+      .map((member, index) => {
+        const currentMember = member;
+        return (
+          <Member
+            member={currentMember}
+            platform={currentMember.destinyUserInfo.LastSeenDisplayNameType}
+            BASE_URL={this.props.BASE_URL}
+            API_KEY={this.props.API_KEY}
+            key={index.toString()}
+          />
+        );
+      });
 
     if (this.state.members.length === 0) {
       return (
@@ -60,7 +66,7 @@ class Members extends Component {
           </header>
           <section className="members">
             <div className="loading">
-              { this.state.failedCall ? "API call failed :(" : "Loading..." }
+              {this.state.failedCall ? "API call failed :(" : "Loading..."}
             </div>
           </section>
         </div>
