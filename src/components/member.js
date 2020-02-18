@@ -8,7 +8,8 @@ import { ReactComponent as StadiaLogo } from '../assets/img/platform-stadia.svg'
 
 const Member = ({member, platform}) => {
 
-	const platforms = [
+	const platforms = ["?" , "xbox", "PS4", "PC", "PC", "Stadia"];
+	const platformIcons = [
 		"",
 		<XboxLogo title="Xbox logo" width="1rem" height="1rem" />,
 		<PlaystationLogo title="Playstation logo" width="1rem" height="1rem" />,
@@ -26,9 +27,7 @@ const Member = ({member, platform}) => {
 		member.destinyUserInfo.applicableMembershipTypes.map( (platform,index) => {
 			return(
 				<div className="icon baseline" key={`platformIcon${index}`}>
-					{index === 0 ? "(" : ",\xa0"}
-						{ platforms[platform] }
-					{index === member.destinyUserInfo.applicableMembershipTypes.length - 1 ? ")" : ""}
+						{ platformIcons[platform] }
 				</div>
 			);
 		});
@@ -42,7 +41,16 @@ const Member = ({member, platform}) => {
 				className={`member 
 					${(daysSincePlayed - daysSincePlayed * 2) > 89 ? "boot" : "dont-boot"} 
 					${member.memberType >= 3 ? "admin" : ""}`}>
-						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } on <div className="icon baseline">{platforms[platform]}</div> {xsaveUserPlatforms}
+						<strong>{member.destinyUserInfo.LastSeenDisplayName}</strong> : Played { lastPlayed } on {platforms[platform]}
+						{/* Conditional Rendering if cross save data */}
+						{ member.destinyUserInfo.applicableMembershipTypes.length > 1 &&
+							<div className="xsave">
+								<div className="icon baseline">
+									<img src="https://www.bungie.net/img/theme/bungienet/icons/icon_cross_save_sm_light.png" alt=""/>
+								</div>
+								{xsaveUserPlatforms}
+							</div>
+						}
 			</div>
 		);
 	}

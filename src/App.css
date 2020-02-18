@@ -118,20 +118,20 @@ h2 {
   border: 1px solid var(--outlaws);
 }
 
+/* Admins */
 .admin {
   order: 2;
+  padding-right: 20px;
 }
 .admin:before {
   content: "";
   position: absolute;
-  width: 0px;
-  height: 0;
-  bottom: 0;
-  right: 0;
-  /* background-color: aquamarine; */
-  border: 10px solid white;
-  border-left: 10px solid transparent;
-  border-top: 10px solid transparent;
+  width: 15px;
+  height: 15px;
+  bottom: 5px;
+  right: 5px;
+  background-image: url("assets/img/admin.svg");
+  background-size: contain;
 }
 
 
@@ -150,4 +150,17 @@ h2 {
 .icon.baseline svg, .icon img {
   top: .125rem;
   position: relative;
+}
+
+/* Cross save */
+.xsave{
+  padding-top: 10px;
+}
+
+.xsave img{
+  padding: 1px;
+}
+
+.xsave .icon{
+  margin-right: 5px;
 }
