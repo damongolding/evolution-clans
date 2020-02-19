@@ -5,6 +5,7 @@ import { ReactComponent as XboxLogo } from '../assets/img/platform-xbox.svg';
 import { ReactComponent as PlaystationLogo } from '../assets/img/platform-playstation.svg';
 import { ReactComponent as SteamLogo } from '../assets/img/platform-steam.svg';
 import { ReactComponent as StadiaLogo } from '../assets/img/platform-stadia.svg';
+import { ReactComponent as XsaveLogo } from '../assets/img/xsave.svg';
 
 const Member = ({member, platform}) => {
 
@@ -46,7 +47,7 @@ const Member = ({member, platform}) => {
 						{ member.destinyUserInfo.applicableMembershipTypes.length > 1 &&
 							<div className="xsave">
 								<div className="icon baseline">
-									<img src="https://www.bungie.net/img/theme/bungienet/icons/icon_cross_save_sm_light.png" alt=""/>
+									<XsaveLogo title="Cross save logo" height="1rem" width="1rem" />
 								</div>
 								{xsaveUserPlatforms}
 							</div>
