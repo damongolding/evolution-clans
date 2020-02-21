@@ -164,3 +164,21 @@ h2 {
 .xsave .icon{
   margin-right: 5px;
 }
+
+
+.player-details-enter {
+  opacity: 0;
+  height: 0;
+}
+.player-details-enter-active {
+  opacity: 1;
+  height: auto;
+  transition: opacity 200ms;
+}
+.player-details-exit {
+  opacity: 1;
+}
+.player-details-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

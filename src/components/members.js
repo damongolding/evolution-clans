@@ -23,7 +23,6 @@ class Members extends Component {
       .set("accept", "json")
       .end((err, res) => {
         if (!err) {
-          //const results = JSON.parse(res.text);
           this.setState({
             members: res.body.Response.results
           });

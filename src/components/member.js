@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Moment from 'moment';
+import { CSSTransition } from 'react-transition-group';
+
 // Import platform logos
 import { ReactComponent as XboxLogo } from '../assets/img/platform-xbox.svg';
 import { ReactComponent as PlaystationLogo } from '../assets/img/platform-playstation.svg';
@@ -8,6 +10,9 @@ import { ReactComponent as StadiaLogo } from '../assets/img/platform-stadia.svg'
 import { ReactComponent as XsaveLogo } from '../assets/img/xsave.svg';
 
 const Member = ({member, platform}) => {
+
+	// Bool switch to open additional info
+	const [displayInfo, setDisplayInfo] = useState(false);
 
 	const platforms = ["?" , "xbox", "PS4", "PC", "PC", "Stadia"];
 	const platformIcons = [
@@ -21,6 +26,7 @@ const Member = ({member, platform}) => {
 	const lastPlayed = Moment.unix(member.lastOnlineStatusChange).fromNow();
 	const today = Moment(new Date());
 	const daysSincePlayed = Moment.unix(member.lastOnlineStatusChange).diff(today, 'days');
+	
 
 // If a user has played/saved Destiny on multiple platforms show them e.g. (XB1, PSN)
 	const xsaveUserPlatforms = 
@@ -35,10 +41,11 @@ const Member = ({member, platform}) => {
 
 
 	if (!member.destinyUserInfo && !member.bungieNetUserInfo)	{ 
-		return <div></div>; 
+		return null; 
 	} else {
 		return (
-			<div 
+			<div
+				onClick={() => setDisplayInfo(!displayInfo)}
 				className={`member 
 					${(daysSincePlayed - daysSincePlayed * 2) > 89 ? "boot" : "dont-boot"} 
 					${member.memberType >= 3 ? "admin" : ""}`}>
@@ -52,6 +59,21 @@ const Member = ({member, platform}) => {
 								{xsaveUserPlatforms}
 							</div>
 						}
+
+						{/* 
+						Player additional info --WIP--
+						<CSSTransition 
+							in={displayInfo} 
+							timeout={200} 
+							classNames="player-details"
+							unmountOnExit>
+							<div>
+								{ member.bungieNetUserInfo && 
+									<img src={`https://bungie.net/${member.bungieNetUserInfo.iconPath}`} alt=""/>
+								}
+							</div>
+						</CSSTransition>
+						 */}
 			</div>
 		);
 	}
