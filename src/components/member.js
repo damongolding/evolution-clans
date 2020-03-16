@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Moment from 'moment';
-import { CSSTransition } from 'react-transition-group';
+//import { CSSTransition } from 'react-transition-group';
 
 // Import platform logos
 import { ReactComponent as XboxLogo } from '../assets/img/platform-xbox.svg';
