@@ -4,12 +4,12 @@
   "private": true,
   "homepage": "/evolution-clans/",
   "dependencies": {
-    "moment-timezone": "^0.5.14",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "moment-timezone": "^0.5.28",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "react-transition-group": "^4.3.0",
-    "superagent": "^5.2.1"
+    "superagent": "^5.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
