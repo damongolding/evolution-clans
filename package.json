@@ -11,6 +11,10 @@
     "react-transition-group": "^4.3.0",
     "superagent": "^5.2.2"
   },
+  "devDependencies": {
+    "elliptic": ">=6.5.3",
+    "dot-prop": ">=5.1.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
