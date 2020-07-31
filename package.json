@@ -9,9 +9,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.0",
     "react-transition-group": "^4.4.1",
-    "superagent": "^5.3.1"
-  },
-  "devDependencies": {
+    "superagent": "^5.3.1",
     "elliptic": ">=6.5.3",
     "dot-prop": ">=5.1.1"
   },
