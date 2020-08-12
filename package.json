@@ -1,17 +1,17 @@
 {
   "name": "evolution-clans",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "/evolution-clans/",
   "dependencies": {
+    "dot-prop": ">=5.1.1",
+    "elliptic": ">=6.5.3",
     "moment-timezone": "^0.5.31",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.0",
+    "react-scripts": "^3.4.3",
     "react-transition-group": "^4.4.1",
-    "superagent": "^5.3.1",
-    "elliptic": ">=6.5.3",
-    "dot-prop": ">=5.1.1"
+    "superagent": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

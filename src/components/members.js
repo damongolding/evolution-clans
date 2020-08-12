@@ -12,7 +12,7 @@ class Members extends Component {
       clanName: props.clanName,
       platform: props.platform,
       members: [],
-      failedCall: false
+      failedCall: false,
     };
   }
 
@@ -24,7 +24,7 @@ class Members extends Component {
       .end((err, res) => {
         if (!err) {
           this.setState({
-            members: res.body.Response.results
+            members: res.body.Response.results,
           });
         } else {
           this.setState({ failedCall: true });
@@ -54,27 +54,30 @@ class Members extends Component {
         );
       });
 
+    // Pull state into const to avoid this.state.blah 
+    const { clanName, failedCall } = this.state;
+
     if (this.state.members.length === 0) {
       return (
-        <div className={`clan ${this.state.clanName}-border`}>
-          <header className={this.state.clanName}>
-            <h2>{this.state.clanName}</h2>
+        <div className={`clan ${clanName}-border`}>
+          <header className={clanName}>
+            <h2>{clanName}</h2>
             <div className="member-number">
               Number of members: <strong> 0 </strong>
-            </div>
+            </div>  
           </header>
           <section className="members">
             <div className="loading">
-              {this.state.failedCall ? "API call failed :(" : "Loading..."}
+              {failedCall ? "API call failed :(" : "Loading..."}
             </div>
           </section>
         </div>
       );
     } else {
       return (
-        <div className={`clan ${this.state.clanName}-border`}>
-          <header className={this.state.clanName}>
-            <h2>{this.state.clanName}</h2>
+        <div className={`clan ${clanName}-border`}>
+          <header className={clanName}>
+            <h2>{clanName}</h2>
             <div className="member-number">
               Number of members: <strong> {members.length} </strong>
             </div>
