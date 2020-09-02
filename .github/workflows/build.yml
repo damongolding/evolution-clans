@@ -1,44 +1,47 @@
-name: Build and Deploy
+name: github pages
 
 on:
-  push: 
-    branches:    
-      - master         # Push events on master branch
+  push:
+    branches:
+      - master
 
 jobs:
-  build-deploy:
-
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
 
     strategy:
       matrix:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install and build
-      run: |
-        npm ci
-        npm run build --if-present
-      env:
-        CI: true
+      - uses: actions/checkout@v2
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
-      env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./build
+      - uses: borales/actions-yarn@v2.0.0
+        name: Yarn install
+        with:
+          cmd: install # will run `yarn install` command
 
-    - name: Discord notification
-      if: success()
-      env:
-        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      uses: Ilshidur/action-discord@master
-      with:
-        args: >-
-          'A new version of the Evolution clans webapp has been deployed to https://damongolding.github.io/evolution-clans'
+      - uses: borales/actions-yarn@v2.0.0
+        name: Yarn build
+        with:
+          cmd: build # will run `yarn install` command
+
+      - uses: borales/actions-yarn@v2.0.0
+        name: Yarn export
+        with:
+          cmd: export # will run `yarn install` command
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./out
+
+      - name: Discord notification
+        if: success()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: >-
+            'A new version of the Evolution clans webapp has been deployed to https://damongolding.github.io/evolution-clans'

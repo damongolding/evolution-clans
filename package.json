@@ -1,37 +1,23 @@
 {
-  "name": "evolution-clans",
-  "version": "1.0.0",
+  "name": "evolution-clans-next",
+  "version": "0.1.0",
   "private": true,
-  "homepage": "/evolution-clans/",
-  "dependencies": {
-    "dot-prop": ">=5.1.1",
-    "elliptic": ">=6.5.3",
-    "moment-timezone": "^0.5.31",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.3",
-    "react-transition-group": "^4.4.1",
-    "superagent": "^6.0.0"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "moment": "^2.27.0",
+    "next": "9.5.2",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "superagent": "^6.0.0",
+    "swr": "^0.3.1",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^1.7.6"
   }
 }

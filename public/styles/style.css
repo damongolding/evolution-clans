@@ -66,11 +66,6 @@ h2 {
   order: 3;
 }
 
-.admin {
-  order: 2;
-  padding-right: 20px;
-}
-
 .boot {
   background-color: var(--boot);
   order: 1;
@@ -83,7 +78,7 @@ h2 {
 
 /* Knights */
 .Knights {
-  background: var(--knights) url("./assets/img/pvp.png") no-repeat center right;
+  background: var(--knights) url("/img/pvp.png") no-repeat center right;
   background-size: 30%;
 }
 .Knights-border {
@@ -93,7 +88,7 @@ h2 {
 /* Renegades/Fatebringers */
 .Renegades,
 .Fatebringers {
-  background: black url("./assets/img/raid.png") no-repeat center right;
+  background: black url("/img/raid.png") no-repeat center right;
   background-size: 30%;
 }
 .Renegades-border,
@@ -103,7 +98,7 @@ h2 {
 
 /* Strom */
 .Storm {
-  background: var(--storm) url("./assets/img/nightfall.png") no-repeat center
+  background: var(--storm) url("/img/nightfall.png") no-repeat center
     right;
   background-size: 30%;
 }
@@ -114,7 +109,7 @@ h2 {
 /* Outlaws/Warminds */
 .Outlaws,
 .Warminds {
-  background: var(--outlaws) url("./assets/img/traveler.png") no-repeat center
+  background: var(--outlaws) url("/img/traveler.png") no-repeat center
     right;
   background-size: 30%;
 }
@@ -125,6 +120,7 @@ h2 {
 
 /* Admins */
 .admin {
+  order: 2;
   padding-right: 20px;
 }
 .admin:before {
@@ -134,7 +130,7 @@ h2 {
   height: 15px;
   bottom: 5px;
   right: 5px;
-  background-image: url("assets/img/admin.svg");
+  background-image: url("/img/admin.svg");
   background-size: contain;
 }
 
