@@ -28,8 +28,6 @@ const MemberPage = (props) => {
     fetcher
   );
 
-  const ass = false;
-
   const characters = member ? (
     Object.keys(member.Response.characters.data).map((characterHash) => {
       return (
@@ -96,7 +94,7 @@ const MemberPage = (props) => {
     <>
       <Head>
         <title>{query.member ? query.member : "Member"}'s characters</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/evolution-clans/favicon.ico" />
       </Head>
 
       <div className="text-white container p-4 mx-auto">
