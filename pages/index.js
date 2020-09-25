@@ -4,7 +4,7 @@ import Clan from "../components/clan";
 
 export default function Home(props) {
 
-  const { BASE_URL, API_KEY, manifest } = props;
+  const { BASE_URL, API_KEY } = props;
 
   return (
     <div>
@@ -46,7 +46,5 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   
-  //const manifest = await fetch(`${process.env.BASE_URL}/Destiny2/Manifest/`, { headers: { "X-API-Key": process.env.API_KEY } }).then((res) => res.json());
-
   return { props : {  BASE_URL : process.env.BASE_URL, API_KEY : process.env.API_KEY}}
 }
