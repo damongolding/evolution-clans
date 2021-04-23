@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Clan from "../components/clan";
+import Clan from "@/components/clan";
 
 export default function Home(props) {
 
@@ -10,7 +10,7 @@ export default function Home(props) {
     <div>
       <Head>
         <title>Evolution Clans</title>
-        <link rel="icon" href="/evolution-clans/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="flex flex-row flex-wrap">

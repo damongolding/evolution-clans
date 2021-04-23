@@ -1,13 +1,11 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
   purge: {
-    content:["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
-    options : {
-      whitelist : ['bg-outlaws','bg-knights','bg-storm', 'bg-fatebringers', 'border-outlaws','border-knights','border-storm', "border-fatebringers"]
+    content : ["./pages/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}",],
+    options :  {
+      safelist : ['bg-outlaws','bg-knights','bg-storm', 'bg-fatebringers', 'border-outlaws','border-knights','border-storm', "border-fatebringers"]
     }
   },
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors:{
@@ -25,6 +23,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [],
-};
+}

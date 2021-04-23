@@ -5,11 +5,11 @@ const ClanMember = ({ member, platform }) => {
   const platforms = ["?", "xbox", "PS4", "PC", "PC", "Stadia"];
   const platformIcons = [
     "",
-    <img src="/evolution-clans/img/platform-xbox.svg" />,
-    <img src="/evolution-clans/img/platform-playstation.svg" />,
-    <img src="/evolution-clans/img/platform-steam.svg" />,
-    <img src="/evolution-clans/img/platform-steam.svg" />,
-    <img src="/evolution-clans/img/platform-stadia.svg" />,
+    <img src="/img/platform-xbox.svg" />,
+    <img src="/img/platform-playstation.svg" />,
+    <img src="/img/platform-steam.svg" />,
+    <img src="/img/platform-steam.svg" />,
+    <img src="/img/platform-stadia.svg" />,
   ];
   const lastPlayed = Moment.unix(member.lastOnlineStatusChange).fromNow();
   const today = Moment(new Date());
@@ -66,7 +66,7 @@ const ClanMember = ({ member, platform }) => {
               {member.destinyUserInfo.applicableMembershipTypes.length > 1 && (
                 <div className="flex flex-row mt-2">
                   <div className={`w-4 h-4 mr-1`}>
-                    <img src="/evolution-clans/img/xsave.svg" />
+                    <img src="/img/xsave.svg" />
                   </div>
                   {xsaveUserPlatforms}
                 </div>

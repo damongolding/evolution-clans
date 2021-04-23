@@ -1,9 +1,9 @@
 import useSwr from "swr";
 
-import Emblem from "./items/emblem";
-import Subclass from "./items/subclass.js";
-import Weapon from "./items/weapon.js";
-import DummyItem from "./items/dummy-item";
+import Emblem from "@/components/items/emblem";
+import Subclass from "@/components/items/subclass";
+import Weapon from "@/components/items/weapon";
+import DummyItem from "@/components/items/dummy-item";
 
 const Other = ({ data }) => (
   <div className="mb-2 order-7 bg-darkblue">

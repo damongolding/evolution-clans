@@ -1,4 +1,4 @@
-import CharacterItem from "./character-item.js";
+import CharacterItem from "@/components/character-item.js";
 
 const Character = ({
   BASE_URL,

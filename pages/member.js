@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import Character from "../components/character";
 import Link from "next/link";
-
-import useSWR from "swr";
 import Head from "next/head";
+import useSWR from "swr";
 
-import DummyItem from "../components/items/dummy-item";
+import Character from "@/components/character";
+import DummyItem from "@/components/items/dummy-item";
 
 const MemberPage = (props) => {
   const { BASE_URL, API_KEY } = props;
@@ -94,7 +93,7 @@ const MemberPage = (props) => {
     <>
       <Head>
         <title>{query.member ? query.member : "Member"}'s characters</title>
-        <link rel="icon" href="/evolution-clans/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="text-white container p-4 mx-auto">

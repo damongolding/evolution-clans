@@ -1,7 +1,7 @@
-import ClanMember from "./clan-member";
+import ClanMember from "@/components/clan-member";
 import useSWR from "swr";
 
-import LoadingImg from "./assets/img/loading.svg";
+// import LoadingImg from "@/components/assets/img/loading.svg";
 
 export default function Clan(props) {
   const { BASE_URL, API_KEY, groupId, clanName, platform } = props;
@@ -34,7 +34,26 @@ export default function Clan(props) {
             "API call failed :("
           ) : (
             <div className="self-center m-6">
-              <LoadingImg className="animate-spin -ml-1 mr-3 h-5 w-5" />
+              <svg
+                className="animate-spin -ml-1 mr-3 h-5 w-5"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  opacity="0.2"
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="white"
+                  strokeWidth="4"
+                />
+                <path
+                  opacity="0.7"
+                  d="M4 12C4 9.87827 4.84285 7.84344 6.34315 6.34315C7.84344 4.84285 9.87827 4 12 4V0C5.373 0 0 5.373 0 12H4ZM6 17.291C4.70821 15.8316 3.99661 13.949 4 12H0C0 15.042 1.135 17.824 3 19.938L6 17.291Z"
+                  fill="white"
+                />
+              </svg>
             </div>
           )}
         </section>
