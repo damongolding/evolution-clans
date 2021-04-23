@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Moment from "moment";
+import { DateTime } from "luxon";
 
 const ClanMember = ({ member, platform }) => {
   const platforms = ["?", "xbox", "PS4", "PC", "PC", "Stadia"];
@@ -11,12 +11,12 @@ const ClanMember = ({ member, platform }) => {
     <img src="/img/platform-steam.svg" />,
     <img src="/img/platform-stadia.svg" />,
   ];
-  const lastPlayed = Moment.unix(member.lastOnlineStatusChange).fromNow();
-  const today = Moment(new Date());
-  const daysSincePlayed = Moment.unix(member.lastOnlineStatusChange).diff(
-    today,
-    "days"
-  );
+
+
+  const currentDate = DateTime.now();
+  const lastPlayed = DateTime.fromSeconds(parseInt(member.lastOnlineStatusChange)).toRelative();
+  const daysSincePlayed =  currentDate.diff(DateTime.fromSeconds(parseInt(member.lastOnlineStatusChange)), "days");
+
 
   // If a user has played/saved Destiny on multiple platforms show them e.g. (XB1, PSN)
   const xsaveUserPlatforms =
@@ -38,7 +38,7 @@ const ClanMember = ({ member, platform }) => {
   if (!member.destinyUserInfo && !member.bungieNetUserInfo) {
     return null;
   } else {
-    const toBoot = daysSincePlayed - daysSincePlayed * 2 > 89 ? true : false; // mark to boot if inactive for XX amount of time
+    const toBoot = Math.ceil(daysSincePlayed.values.days) > 89 ? true : false; // mark to boot if inactive for XX amount of time
     const isAdmin = member.memberType >= 3 ? true : false; // Is member a admin
 
     return (
