@@ -1,6 +1,6 @@
 # Evolution clans
 
-Live page is [https://damongolding.github.io/evolution-clans/](https://damongolding.github.io/evolution-clans/)
+Live page is [https://evolution-clans.vercel.app/](https://evolution-clans.vercel.app/)
 
 
 ## Getting Started
