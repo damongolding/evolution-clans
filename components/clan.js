@@ -83,7 +83,7 @@ export default function Clan(props) {
 
     return (
       <div
-        className={`flex flex-col w-full sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-${clanName.toLowerCase()}`}
+        className={`flex flex-col w-full sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/3 border border-${clanName.toLowerCase()}`}
       >
         <header
           className={`text-white p-4 bg-no-repeat bg-right bg-${clanName.toLowerCase()} ${clanName.toLowerCase()}`}

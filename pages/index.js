@@ -3,7 +3,6 @@ import Head from "next/head";
 import Clan from "@/components/clan";
 
 export default function Home(props) {
-
   const { BASE_URL, API_KEY } = props;
 
   return (
@@ -20,31 +19,27 @@ export default function Home(props) {
           BASE_URL={BASE_URL}
           API_KEY={API_KEY}
         />
-        
-        <Clan 
-          clanName="Fatebringers"
-          groupId="2185897"
-          BASE_URL={BASE_URL}
-          API_KEY={API_KEY} />
-          
-        <Clan 
+
+        <Clan
           clanName="Storm"
           groupId="2057456"
           BASE_URL={BASE_URL}
-          API_KEY={API_KEY} />
-        
-        <Clan 
+          API_KEY={API_KEY}
+        />
+
+        <Clan
           clanName="Outlaws"
-          groupId="4114610"
+          groupId="4814867"
           BASE_URL={BASE_URL}
-          API_KEY={API_KEY} />
+          API_KEY={API_KEY}
+        />
       </div>
     </div>
   );
 }
 
-
 export async function getStaticProps() {
-  
-  return { props : {  BASE_URL : process.env.BASE_URL, API_KEY : process.env.API_KEY}}
+  return {
+    props: { BASE_URL: process.env.BASE_URL, API_KEY: process.env.API_KEY },
+  };
 }
