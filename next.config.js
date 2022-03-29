@@ -1,12 +1,7 @@
-// const withImages = require('next-images');
-
-// module.exports =  withImages({
-//   webpack(config, options) {
-//     return config;
-//   }
-// })
-module.exports = {
-  future: {
-    webpack5: true,
+const nextConfig = {
+  images: {
+    domains: ["https://bungie.net", "bungie.net"],
   },
-}
+};
+
+module.exports = nextConfig;

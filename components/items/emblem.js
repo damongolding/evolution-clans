@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Emblem = ({
   characterClass,
   characterLight,
@@ -11,7 +13,13 @@ const Emblem = ({
       style={{ backgroundColor: emblemBackgroundColor }}
     >
       <div className="relative">
-        <img src={`http://bungie.net${secondaryIcon}`} alt="" />
+        <Image
+          src={`http://bungie.net${secondaryIcon}`}
+          layout="responsive"
+          width={376}
+          height={76}
+          alt="character emblem"
+        />
         <div className="absolute inset-0 flex flex-row">
           <div className="sm:w-10 sm:h-10 md:w-10 md:h-10 lg:w-16 lg:h-16 w-16 h-16"></div>
           <div className="p-4 flex flex-grow flex-row self-center items-center justify-between">

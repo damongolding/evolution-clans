@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import useSwr from "swr";
 
 import Emblem from "@/components/items/emblem";
@@ -9,10 +11,12 @@ const Other = ({ data }) => (
   <div className="mb-2 order-7 bg-darkblue">
     <div className={`flex flex-row`}>
       <div>
-        <img
+        <Image
           className="w-16 h-16"
-          src={`https://bungie.net/${data.icon}`}
+          src={`https://bungie.net${data.icon}`}
           alt={data.name}
+          width={64}
+          height={64}
         />
       </div>
       <div className="px-4 py-1 flex-grow flex flex-col">{data.name}</div>
@@ -76,7 +80,9 @@ const Item = ({
     }
   }
 
-  return <>{item ? getItemType(item.Response.itemType) : <DummyItem order={7} />}</>;
+  return (
+    <>{item ? getItemType(item.Response.itemType) : <DummyItem order={7} />}</>
+  );
 };
 
 export default Item;

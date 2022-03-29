@@ -1,22 +1,56 @@
 import Link from "next/link";
+import Image from "next/image";
 import { DateTime } from "luxon";
 
 const ClanMember = ({ member, platform }) => {
   const platforms = ["?", "xbox", "PS4", "PC", "PC", "Stadia"];
   const platformIcons = [
     "",
-    <img src="/img/platform-xbox.svg" />,
-    <img src="/img/platform-playstation.svg" />,
-    <img src="/img/platform-steam.svg" />,
-    <img src="/img/platform-steam.svg" />,
-    <img src="/img/platform-stadia.svg" />,
+    <Image
+      src="/img/platform-xbox.svg"
+      alt="platform icon for xbox"
+      width={16}
+      height={16}
+      key="platform-icon-xbox"
+    />,
+    <Image
+      width={16}
+      height={16}
+      src="/img/platform-playstation.svg"
+      alt="platform icon for playstation"
+      key="platform-icon-ps"
+    />,
+    <Image
+      width={16}
+      height={16}
+      src="/img/platform-steam.svg"
+      alt="platform icon for steam"
+      key="platform-icon-steam"
+    />,
+    <Image
+      width={16}
+      height={16}
+      src="/img/platform-steam.svg"
+      alt="platform icon for steam"
+      key="platform-icon-steam-pc"
+    />,
+    <Image
+      width={16}
+      height={16}
+      src="/img/platform-stadia.svg"
+      alt="platform icon for stadia"
+      key="platform-icon-stadia"
+    />,
   ];
 
-
   const currentDate = DateTime.now();
-  const lastPlayed = DateTime.fromSeconds(parseInt(member.lastOnlineStatusChange)).toRelative();
-  const daysSincePlayed =  currentDate.diff(DateTime.fromSeconds(parseInt(member.lastOnlineStatusChange)), "days");
-
+  const lastPlayed = DateTime.fromSeconds(
+    parseInt(member.lastOnlineStatusChange)
+  ).toRelative();
+  const daysSincePlayed = currentDate.diff(
+    DateTime.fromSeconds(parseInt(member.lastOnlineStatusChange)),
+    "days"
+  );
 
   // If a user has played/saved Destiny on multiple platforms show them e.g. (XB1, PSN)
   const xsaveUserPlatforms =
@@ -45,7 +79,7 @@ const ClanMember = ({ member, platform }) => {
       <div
         className={`text-white bg-darkblue p-2 m-1 ${
           toBoot ? "bg-boot order-1" : isAdmin ? "order-2" : "order-3"
-        } ${ isAdmin ? "relative admin" : null}`}
+        } ${isAdmin ? "relative admin" : null}`}
       >
         <Link
           href={{
@@ -66,7 +100,7 @@ const ClanMember = ({ member, platform }) => {
               {member.destinyUserInfo.applicableMembershipTypes.length > 1 && (
                 <div className="flex flex-row mt-2">
                   <div className={`w-4 h-4 mr-1`}>
-                    <img src="/img/xsave.svg" />
+                    <Image src="/img/xsave.svg" width={16} height={16} alt="" />
                   </div>
                   {xsaveUserPlatforms}
                 </div>

@@ -92,7 +92,9 @@ const MemberPage = (props) => {
   return (
     <>
       <Head>
-        <title>{query.member ? query.member : "Member"}'s characters</title>
+        <title>
+          {query.member ? query.member : "Member"}&apos;s characters
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

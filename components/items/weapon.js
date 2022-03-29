@@ -1,10 +1,14 @@
+import Image from "next/image";
+
 const Weapon = ({ data }) => (
   <div className="mb-2 order-5 bg-darkblue">
     <div className={`flex flex-row`}>
       <div>
-        <img
+        <Image
           className="w-16 h-16"
           src={`https://bungie.net/${data.displayProperties.icon}`}
+          width={64}
+          height={64}
           alt={data.displayProperties.name}
         />
       </div>
