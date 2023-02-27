@@ -89,30 +89,28 @@ const MemberPage = (props) => {
     </div>
   );
 
-  return (
-    <>
-      <Head>
-        <title>
-          {query.member ? query.member : "Member"}&apos;s characters
-        </title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  return <>
+    <Head>
+      <title>
+        {query.member ? query.member : "Member"}&apos;s characters
+      </title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-      <div className="text-white container p-4 mx-auto">
-        <nav className="mb-3">
-          <Link href="/">
-            <a className="underline">Back</a>
-          </Link>
-        </nav>
+    <div className="text-white container p-4 mx-auto">
+      <nav className="mb-3">
+        <Link href="/" className="underline">
+          Back
+        </Link>
+      </nav>
 
-        <h1 className="text-4xl">{query.member ? query.member : null}</h1>
+      <h1 className="text-4xl">{query.member ? query.member : null}</h1>
 
-        <div className="flex flex-row flex-wrap sm:justify-center justify-start">
-          {characters}
-        </div>
+      <div className="flex flex-row flex-wrap sm:justify-center justify-start">
+        {characters}
       </div>
-    </>
-  );
+    </div>
+  </>;
 };
 
 export async function getStaticProps() {

@@ -2,6 +2,10 @@ html, body{
 	background-color: #12171c;
 }
 
+.admin{
+  @apply border border-yellow;
+}
+
 .admin:before {
   content: "";
   position: absolute;
@@ -16,25 +20,26 @@ html, body{
 /* knights */
 .knights {
 	background-image: url("/img/pvp.png");
-  background-size: 30%;
+  background-size: contain;
 }
 
 /* renegades/fatebringers */
 .renegades,
 .fatebringers {
   background-image: url("/img/raid.png");
-  background-size: 30%;
+  background-size: contain;
 }
 
 /* Strom */
 .storm {
   background-image: url("/img/nightfall.png");
-  background-size: 30%;
+  background-size: contain;
 }
 
 /* outlaws/warminds */
 .outlaws,
 .warminds {
   background-image: url("/img/traveler.png");
-  background-size: 30%;
+  background-size: contain;
 }
+
